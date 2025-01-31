@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class FibonaccirestapiApplication
+class FibonacciRestapiApplication
 
 fun main(args: Array<String>) {
-	runApplication<FibonaccirestapiApplication>(*args)
+	runApplication<FibonacciRestapiApplication>(*args)
 }

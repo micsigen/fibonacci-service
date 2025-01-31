@@ -5,6 +5,8 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.15.RELEASE"
 	kotlin("jvm") version "1.6.21"
 	kotlin("plugin.spring") version "1.6.21"
+	// Add Jib plugin
+	id("com.google.cloud.tools.jib") version "3.3.2"
 }
 
 group = "hu.obuda.devops"
@@ -25,6 +27,25 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
+}
+
+// Jib configuration
+jib {
+	from {
+		image = "openjdk:11-jre-slim"
+	}
+	to {
+		image = "fibonacci-service"
+		tags = setOf("latest", version.toString())
+	}
+	container {
+		ports = listOf("8000", "9000")
+		jvmFlags = listOf(
+			"-Xms512m",
+			"-Xmx512m"
+		)
+		mainClass = "hu.obuda.devops.fibonaccirestapi.FibonacciRestapiApplicationKt"
+	}
 }
 
 tasks.withType<KotlinCompile> {
