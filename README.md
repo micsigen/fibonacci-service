@@ -5,14 +5,12 @@ Fibonacci Service is a Spring Boot application written in Kotlin that provides a
 
 ## Features
 - REST API for Fibonacci sequence calculations
-- Integration with Zeebe broker for workflow processing
 - Helm configuration for Kubernetes deployment
 
 ## Prerequisites
 - Java 17+
 - Docker (optional for containerized deployment)
 - Helm (for Kubernetes deployment)
-- Zeebe broker (must be running before starting the application)
 
 ## Installation
 1. Clone the repository:
